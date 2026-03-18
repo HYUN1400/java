@@ -37,6 +37,60 @@ public class For01 {
 		}
 		
 		System.out.println(); //줄바꿈
+		
+		
+		// 1~10 중 짝수만 출력
+		
+		for(i=2; i<=10; i+=2) {
+			System.out.print(i+ " ");
+		}
+		
+		System.out.println(); //줄바꿈
+		
+		
+		for(i=1; i<=10; i++) {
+			if(i%2 == 0) {
+				System.out.print(i + "짝수");
+			} else {
+				System.out.print(i + "홀수");
+			}
+		}
+		
+		System.out.println(); //줄바꿈
+		
+		
+		// 1~10까지의 합계
+		int sum = 0;
+//		for(int a=1; a<=10; a++) {
+//			sum += a;
+//			System.out.print(sum + " ");
+//		}
+//		
+//		System.out.println(); //줄바꿈
+//		System.out.println(sum);
+		
+		// 1~10까지의 짝수합계
+		
+		for(i=2; i<=10; i+=2) {
+			sum += i;
+			System.out.print(sum + " ");
+		}
+		
+		System.out.println(); //줄바꿈
+		sum = 0;
+		
+		for(i=0; i<=10; i++) {
+			if(i % 2 == 1) {
+				sum += i;
+				System.out.print(sum + " ");
+			}
+		}
+		
+		
+		
+		
+		
+		// End fragment
 	}
 
 }
