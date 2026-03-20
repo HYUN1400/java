@@ -33,7 +33,7 @@ public class Exam03 {
 			if(menu == 6) {
 				System.out.println("계산을 종료합니다.👌");
 				break;
-			} else if(menu < 1 || menu > 6) {
+			} else if(menu < 1 || menu > 6 ) {
 				System.out.println("유효하지 않은 값입니다.");
 				continue;
 			} else {
