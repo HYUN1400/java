@@ -79,42 +79,76 @@ public class Exam01 {
 //			
 //		}while(count < 1);
 		
+//		Scanner scan = new Scanner(System.in);
+//
+//		while(true) {
+//		    System.out.println("선택하세요!");
+//		    System.out.println("1 > 가위 ✌️ | 2 > 바위 ✊ | 3 > 보 ✋");
+//
+//		    int random = (int)(Math.random() * 3) + 1;
+//		    int select = scan.nextInt();
+//
+//		    if(select < 1 || select > 3) {
+//		        System.out.println("가위, 바위, 보 중에 골라주세요! 😑");
+//		        continue;
+//		    }
+//		    
+//		    if(random == 1) {
+//		    	System.out.println("컴퓨터는 가위를 냈습니다.");
+//		    } else if(random == 2 ) {
+//		    	System.out.println("컴퓨터는 바위를 냈습니다.");
+//		    } else if(random == 3 ) {
+//		    	System.out.println("컴퓨터는 보를 냈습니다.");
+//		    }
+//
+//
+//		    int result = (select - random + 3) % 3;
+//
+//		    if(result == 0) {
+//		        System.out.println("비겼습니다!");
+//		    } else if(result == 1) {
+//		        System.out.println("이겼습니다! 🥳");
+//		        break;
+//		    } else {
+//		        System.out.println("졌습니다... 🥲");
+//		        break;
+//		    }
+//		}
+//
+//		scan.close();
+		
+		
+		String[] choice = {"가위", "바위", "보"};
 		Scanner scan = new Scanner(System.in);
-
+		int select;
+		
 		while(true) {
-		    System.out.println("선택하세요!");
-		    System.out.println("1 > 가위 ✌️ | 2 > 바위 ✊ | 3 > 보 ✋");
-
-		    int random = (int)(Math.random() * 3) + 1;
-		    int select = scan.nextInt();
-
-		    if(select < 1 || select > 3) {
-		        System.out.println("가위, 바위, 보 중에 골라주세요! 😑");
-		        continue;
-		    }
-
-		    System.out.println("컴퓨터는 " + random + "을 냈습니다.");
-
-		    int result = (select - random + 3) % 3;
-
-		    if(result == 0) {
-		        System.out.println("비겼습니다!");
-		    } else if(result == 1) {
-		        System.out.println("이겼습니다! 🥳");
-		        break;
-		    } else {
-		        System.out.println("졌습니다... 🥲");
-		        break;
-		    }
-		}
-
-		scan.close();
-		
-		
-		
-		
-		
-		
+						
+			System.out.println("선택하세요!");
+			System.out.println("0 > 가위 ✌️ | 1 > 바위 ✊ | 2 > 보 ✋ | 3 > EXIT");
+			
+			select = scan.nextInt();
+			int comNum = (int)(Math.random()*3);
+			
+			if (select == 3) {
+				System.out.println("게임을 종료합니다.");
+				break;
+			}
+			
+			int result = (select - comNum + 3) % 3;
+			
+			if(result == 0) {
+				System.out.println("컴퓨터는 " + choice[comNum] + "를 냈습니다.");
+				System.out.println("비겼습니다!");
+			} else if(result == 1) {
+				System.out.println("컴퓨터는 " + choice[comNum] + "를 냈습니다.");
+				System.out.println("이겼습니다! 🥳");
+			} else {
+				System.out.println("컴퓨터는 " + choice[comNum] + "를 냈습니다.");
+				System.out.println("졌습니다... 🥲");
+			}
+									
+		} 
 		
 		scan.close();
 		

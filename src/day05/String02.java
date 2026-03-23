@@ -40,6 +40,7 @@ public class String02 {
 		System.out.println("---*split*---");	
 		String strArr[] = str2.split(", ");
 		System.out.println(Arrays.toString(strArr));
+		System.out.println(strArr[0]);
 		
 		System.out.println("---*split 향샹 for*---");
 		for(String tmp : strArr) {
