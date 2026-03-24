@@ -72,7 +72,7 @@ public class Exam01 {
 			
 			
 			if(count == 3) {
-				System.out.println("타자 룩킹삼진! 정답을 맞췄습니다. 🥳");
+				System.out.println("타자 루킹삼진! 정답을 맞췄습니다. 🥳");
 				break;
 			} else {
 				if(count != 3) {
