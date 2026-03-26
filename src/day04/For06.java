@@ -17,15 +17,15 @@ public class For06 {
 		
 		int max = Math.max(num1, num2);
 		
-		for(;;) {
-			if(max % num1 == 0 && max % num2 == 0) {
-				System.out.println(max);
-				break;
-			}
-			
-			max++;
-		}
-		
+//		for(;;) {
+//			if(max % num1 == 0 && max % num2 == 0) {
+//				System.out.println(max);
+//				break;
+//			}
+//			
+//			max++;
+//		}
+//		
 		for(int i = num1; ; i=i+num1) {
 			if(i % num1 == 0 && i % num2 == 0) {
 				System.out.println(i);

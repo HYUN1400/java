@@ -30,15 +30,15 @@ public class For05 {
 		
 		int k = 0;
 		
-		System.out.print("최대공약수 👉 ");
-		
-		for(i=1; i<=num2; i++) {	
-			if(num1 % i == 0 && num2 % i == 0) {
-				k = i;
-			}
-		}
-		
-		System.out.println(k);
+//		System.out.print("최대공약수 👉 ");
+//		
+//		for(i=1; i<=num2; i++) {	
+//			if(num1 % i == 0 && num2 % i == 0) {
+//				k = i;
+//			}
+//		}
+//		
+//		System.out.println(k);
 		
 		
 		// num1부터 1씩 감소 / 첫조건에 맞으면 출력 => break;

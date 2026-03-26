@@ -31,7 +31,7 @@ public class MethodEx01 {
 			
 			select = scan.nextInt();
 			
-			if(select == 6) {
+			if(select == 6 || select < 1 || select > 6) {
 				System.out.println("계산을 종료합니다.");
 				break;
 			}
@@ -42,11 +42,12 @@ public class MethodEx01 {
 			num2 = scan.nextInt();
 			
 			switch(select) {
-			case 1: System.out.println(me01.sum(num1, num2)); break;
+			case 1: int sum = me01.sum(num1, num2); System.out.println(me01.toPrint(num1, "+", num2, sum)); break;
 			case 2: System.out.println(me01.sub(num1, num2)); break;
 			case 3: System.out.println(me01.multiply(num1, num2)); break;
-			case 4: System.out.println(me01.divide(num1, num2)); break;
+			case 4: me01.print(num1, "/", num2, me01.divide(num1, num2)); break;
 			case 5: System.out.println(me01.mod(num1, num2)); break;
+			default: System.out.println("잘못된 메뉴입니다."); break;
 			}
 			
 			

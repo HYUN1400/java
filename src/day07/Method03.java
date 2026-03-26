@@ -38,6 +38,42 @@ public class Method03 {
 		return a % b;
 	}
 	
+	public void print(int num1, String op, int num2, int result) {
+		if(result == -99999999) {
+			System.out.println("0으로 나눌 수 없습니다.");
+			return;
+		}
+		System.out.println(num1 + op + num2 + " = " + result);
+	}
+	
+	// 메서드 오버로딩: 같은 기능을 하는 이름이 같은 메서드를 여러 개 정의
+	// 같은 기능을 다른 형태의 변수에서 사용할 때
+	// 오버로딩 조건: 매개변수의 타입이 다르거나, 매개변수의 개수가 달라야 한다.
+	
+	public void print(int num1, String op, int num2, double result) {
+		if(result == -99999999) {
+			System.out.println("0으로 나눌 수 없습니다.");
+			return;
+		}
+		System.out.printf("%d %s %d = %.2f\n", num1, op, num2, result);
+	}
+	
+	// String 리턴
+	
+	public String toPrint(int num1, String op, int num2, int result) {
+		if(result == -99999999) {
+			return "0으로 나눌 수 없습니다.";
+		}
+		return num1 + op + num2 + "=" + result;
+	}
+	
+	public String toPrint(int num1, String op, int num2, double result) {
+		if(result == -99999999) {
+			return "0으로 나눌 수 없습니다.";
+		}
+		return num1 + op + num2 + "=" + result;
+	}
+	
 	
 	public static void main(String[] args) {
 		

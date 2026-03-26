@@ -36,6 +36,11 @@ public class Exam01 {
 			
 			for(int i = 0; i < nums.length; i++) {
 				numbers[i] = Integer.parseInt(nums[i]);
+				
+				if(numbers[i] == 0) {
+					numbers[i] = 0;
+				}
+				
 				sum += numbers[i];
 				avg = sum / numbers.length;
 			}
