@@ -11,9 +11,6 @@ public class ClassEx01 {
 		tv.print();	// 초기값
 		
 		tv.power(); // 전원 ON
-		tv.chSelect(10);
-		tv.chUP();
-		tv.chUP();
 		tv.chUP();
 		tv.favCh();
 		tv.chUP();
@@ -25,7 +22,8 @@ public class ClassEx01 {
 		tv.chUP();
 		tv.favCh();
 		tv.chUP();
-		tv.favCh();
+		tv.chUP();
+		tv.chUP();
 		tv.chSelect(10);
 		tv.favCh();
 		tv.printFavCh();
@@ -49,6 +47,7 @@ class TV {
 	private int vol;
 	private int ch = 1;
 	private int[] favCh = new int[5];
+	private int index = 0;
 	
 	// 생성자
 	public TV() {
@@ -121,21 +120,36 @@ class TV {
 	 */
 	
 	/*선호 채널 등록*/
+//	public void favCh() {
+//		int ch = this.ch;
+//		for(int i = 0; i < favCh.length ; i++) {
+//			if(favCh[i] == 0) {	
+//				favCh[i] = ch;
+//				break;
+//			}
+//		}
+//		
+//		for(int i = 0; i < favCh.length - 1; i ++) {
+//			favCh[i] = favCh[i+1];
+//		}
+//		
+//		favCh[favCh.length - 1] = ch;
+//	}
+	
+	
 	public void favCh() {
-		int ch = this.ch;
-		for(int i = 0; i < favCh.length ; i++) {
-			if(favCh[i] == 0) {	
-				favCh[i] = ch;
-				break;
+		// index에 현재 채널을 등록
+		if(this.power) {
+			if(favCh.length == index) {
+				index = 0;
 			}
+			
+			favCh[index] = ch;
+			index++;
+			System.out.println("즐겨찾기에 등록했습니다.");
 		}
-		
-		for(int i = 0; i < favCh.length - 1; i ++) {
-			favCh[i] = favCh[i+1];
-		}
-		
-		favCh[favCh.length - 1] = ch;
 	}
+	
 	
 	/*선호 채널 출력*/
 	public void printFavCh() {
