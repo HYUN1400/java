@@ -86,6 +86,7 @@ public class Controller implements StudentProgram {
 		for(int i = 0; i < number; i++) {
 			if(students[i].getName().contains(name)) {
 				System.out.println(students[i]);
+				System.out.println("\n");
 				count ++;
 			}
 		}
