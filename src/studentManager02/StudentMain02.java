@@ -1,5 +1,6 @@
 package studentManager02;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class StudentMain02 {
@@ -27,7 +28,18 @@ public class StudentMain02 {
 				System.out.println("1.학생등록|2.학생리스트|3.학생조회");
 				System.out.println("4.수강신청|5.수강철회|6.종료");
 				System.out.println("■■■■■■■■■■ 선택 >>>");
-				menu = scan.nextInt();
+				
+
+				while (true) {
+				    try {
+				        menu = scan.nextInt();
+				        break; 
+				    } catch (Exception e) {
+				        System.out.println(e.getMessage() + " : 잘못된 메뉴입니다.");
+				        scan.nextLine(); // 입력 버퍼 비우기
+				    }
+				}		
+
 				
 				switch(menu) {
 				case 1: sc.insertStudent(scan); break;
