@@ -13,6 +13,7 @@ public class StudentController implements StudentProgram02 {
 	
 	// 학생 미리 등록
 	public void addStudent() {
+		// add 값을 추가할 때 꼭 object를 생성해서 (new) 추가
 		student.add(new Student02("1", "학생A", 32, "010-1111-1111", "서울시"));
 		student.add(new Student02("2", "학생B", 30, "010-2222-2222", "서울시"));
 	}
@@ -35,17 +36,20 @@ public class StudentController implements StudentProgram02 {
 	}
 	
 	// 학번을 입력받아 학생 배열에서 해당 학번의 index를 리턴해주는 메서드
-	public int searchIndex(String num) {
-		
-		for(int i = 0; i < student.size(); i++) {
-			if(student.get(i).getStudentNumber().equals(num)) {
-				return i;
-			}
-		}
-		
-		return -1;
-		
-	}
+//	public int searchIndex(String num) {
+//		
+//		return student.indexOf(new Student02(num));
+//		
+//		for(int i = 0; i < student.size(); i++) {
+//			if(student.get(i).getStudentNumber().equals(num)) {
+//				return i;
+//			}
+//		}
+//		
+//		return -1;
+//		
+//		
+//	}
 	
 	
 	
@@ -64,9 +68,9 @@ public class StudentController implements StudentProgram02 {
 	public void insertStudent(Scanner scan) {
 		//searchIndex, studentNumInput 사용
 		
-		String num = studentNumInput(scan);
+		String num = studentNumInput(scan);	
 		
-		if(searchIndex(num) != -1) {
+		if(student.indexOf(new Student02(num)) != -1) {
 			System.out.println("동일한 학번이 존재합니다.");
 			return;
 		}
@@ -106,7 +110,7 @@ public class StudentController implements StudentProgram02 {
 		System.out.println("■■■■■■■■■■ 검색할 학생의 학번을 입력하세요. >>> ");
 		String num = scan.next();
 		
-		int index = searchIndex(num);
+		int index = student.indexOf(new Student02(num));
 		
 		if(index != -1) {
 			student.get(index).printInfo();

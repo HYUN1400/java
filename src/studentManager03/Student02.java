@@ -3,6 +3,7 @@ package studentManager03;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Student02 {
 	// 멤버변수에 배열이 존재하면 그 배열의 index 역할을 하는 변수가 필요
@@ -18,6 +19,10 @@ public class Student02 {
 	
 	// constructor
 	public Student02() { }
+	
+	public Student02(String studentNumber) {
+		this.studentNumber = studentNumber;
+	}
 
 	public Student02(String studentNumber, String studentName, int studentAge, String studentPhone,
 			String studentAddress) {
@@ -62,13 +67,19 @@ public class Student02 {
 		if(!isSubject(sub)) {
 			return;
 		}
-		
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i).getSubjectCode().equals(sub.getSubjectCode())) {
-				System.out.println("이미 동일한 강의를 수강 중입니다.");
-				return;
-			}
-			
+//		
+//		for(int i = 0; i < list.size(); i++) {
+//			if(list.get(i).getSubjectCode().equals(sub.getSubjectCode())) {
+//				System.out.println("이미 동일한 강의를 수강 중입니다.");
+//				return;
+//			}
+//			
+//		}
+//		
+		// list에 해당 sub 객체가 있는지 확인
+		if(list.contains(sub)) {
+			System.out.println("이미 동일한 강의를 수강 중입니다.");
+			return;
 		}
 
 		
@@ -77,32 +88,27 @@ public class Student02 {
 		
 	}
 	
-	// 수강철회 메서드
-	public void deleteSubject(Subject02 sub) {
+	// 수강철회 메서드 => list.remove() 
+	public void deleteSubject(Subject02 sub) { // 수강 코드만 있는 Subject 객체
 		// subjectList에서 sub가 몇번지에 있는지 찾기
-		int index = -1; // 없는 index
+		// int index = -1; // 없는 index
 		
 		if(!isSubject(sub)) {
 			return;
 		}
 		
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i).getSubjectCode().equals(sub.getSubjectCode())) {
-				index = i;
-				break;
-			}
-		}
+//		for(int i = 0; i < list.size(); i++) {
+//			if(list.get(i).getSubjectCode().equals(sub.getSubjectCode())) {
+//				index = i;
+//				break;
+//			}
+//		}
 		
-		if(index == -1) {
-			System.out.println("선택된 강의가 없습니다.");
+		if(list.remove(sub)) { // 삭제가 되면 true / false
+			System.out.println("수강 철회가 완료되었습니다.");
 			return;
 		}
-		
-		for(int i = index; i < list.size()-1; i++) {
-			list.set(i, list.get(i+1));
-		}
-		list.set(list.size()-1, null);
-		System.out.println("수강 철회가 완료되었습니다.");
+			System.out.println("선택된 강의가 없습니다.");
 		
 	}
 	
@@ -181,7 +187,27 @@ public class Student02 {
 		return "Student02 [studentNumber=" + studentNumber + ", studentName=" + studentName + ", studentAge="
 				+ studentAge + ", studentPhone=" + studentPhone + ", studentAddress=" + studentAddress
 				+ ", subjectList=" + list + "]";
+	}
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(studentNumber);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student02 other = (Student02) obj;
+		return Objects.equals(studentNumber, other.studentNumber);
 	};
+	
+	
 	
 	
 }

@@ -1,5 +1,7 @@
 package studentManager03;
 
+import java.util.Objects;
+
 public class Subject02 {
 	private String subjectCode;
 	private String subjectName;
@@ -11,6 +13,11 @@ public class Subject02 {
 	// constructor
 	
 	public Subject02() { }
+	
+	// equals를 하기 위한 생성자
+	public Subject02(String subjectCode) {
+		this.subjectCode = subjectCode;
+	}
 
 	public Subject02(String subjectCode, String subjectName, String subjectTime, String subjectProfessor,
 			String subjectRoom) {
@@ -89,4 +96,40 @@ public class Subject02 {
 				+ ", subjectProfessor=" + subjectProfessor + ", subjectRoom=" + subjectRoom + "]";
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(subjectCode);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Subject02 other = (Subject02) obj;
+		return Objects.equals(subjectCode, other.subjectCode);
+	}
+	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
