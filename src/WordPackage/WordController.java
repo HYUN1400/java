@@ -1,5 +1,8 @@
 package WordPackage;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -45,7 +48,7 @@ public class WordController {
 			scan.nextLine(); // 버퍼 비우기
 			tmp.add(scan.nextLine());
 			
-			System.out.println("■■■■■■■■■■■ 등록을 종료하시겠습니까? (y)");
+			System.out.println("■■■■■■■■■■■ 다른 뜻이 더 없다면 y를 눌러 종료해주세요.");
 			end = scan.next();		
 			
 		}
@@ -130,6 +133,42 @@ public class WordController {
 		
 		System.out.println("삭제에 실패했습니다.");
 			
+	}
+
+
+	public void printFile() throws IOException {
+//		FileWriter vocabulary = new FileWriter("D:\\web_260316_lch\\memo\\vocabulary.txt", true);
+//		
+//		vocabulary.write("•─────────⋅☾ 단어장 ☽⋅─────────• \n");
+//		
+//		for(int i = 0; i < wordBook.size(); i++) {
+//			String data = (i+1) + ". " + wordBook.get(i) + "\n";
+//			vocabulary.write(data);
+//		}
+//		
+//		System.out.println("파일로 내보내기가 완료되었습니다!");
+//		
+//		vocabulary.close();
+		
+		// StringBuffer 객체 사용 => 추가 기능 append()
+		// String 객체의 확장 버전
+		// StringBuffer 객체를 => String 변환하여 저장
+		
+		final String FILENAME = "D:\\web_260316_lch\\memo\\vocabulary.txt";
+		BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME));
+		
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("•─────────⋅☾ 단어장 ☽⋅─────────• \n");
+		
+		for(Word w : wordBook) {
+			sb.append(w);
+			sb.append("\r\n");
+			
+		}
+		
+		bw.write(sb.toString()); // Stringbuffer 객체를 String 객체로
+		 
 	}
 	
 	

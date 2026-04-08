@@ -32,11 +32,16 @@ public class StreamEx02 {
 		
 		List<Customer> list = new ArrayList<>();
 		
-		list.add(new Customer("강민호", (int)(Math.random()*30)+5));
-		list.add(new Customer("구자욱", (int)(Math.random()*30)+5));
-		list.add(new Customer("디아즈", (int)(Math.random()*30)+5));
-		list.add(new Customer("블레오", (int)(Math.random()*30)+5));
-		list.add(new Customer("라온", (int)(Math.random()*30)+5));
+		list.add(new Customer("수리", (int)(Math.random()*25)+5));
+		list.add(new Customer("또리", (int)(Math.random()*25)+5));
+		list.add(new Customer("랜디", (int)(Math.random()*25)+5));
+		list.add(new Customer("블레오", (int)(Math.random()*25)+5));
+		list.add(new Customer("단디", (int)(Math.random()*25)+5));
+		list.add(new Customer("턱돌이", (int)(Math.random()*25)+5));
+		list.add(new Customer("럭키", (int)(Math.random()*25)+5));
+		list.add(new Customer("누리", (int)(Math.random()*25)+5));
+		list.add(new Customer("호걸이", (int)(Math.random()*25)+5));
+		list.add(new Customer("철웅이", (int)(Math.random()*25)+5));
 		
 		
 		System.out.println("•─────────⋅☾ 고객 명단 ☽⋅─────────•");
@@ -60,6 +65,14 @@ public class StreamEx02 {
 		
 		System.out.println("•─────────⋅☾ 20세 이상 ☽⋅─────────•");
 		list.stream()
+			.sorted(new Comparator<Customer>() {
+
+				@Override
+				public int compare(Customer o1, Customer o2) {
+					return o2.getAge() - o1.getAge();
+				}
+				
+			})
 			.filter(n -> n.getAge() >= 20)
 			.forEach(n -> System.out.println(n));
 		
