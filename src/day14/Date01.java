@@ -34,9 +34,9 @@ public class Date01 {
 		// static method now()
 		LocalDateTime localdate = LocalDateTime.now(); // 오늘 날짜 리턴
 		System.out.println(localdate);
-		System.out.println(localdate.getYear());
-		System.out.println(localdate.getMonth());
-		System.out.println(localdate.getDayOfMonth());
+		System.out.print(localdate.getYear());
+		System.out.print(localdate.getMonth());
+		System.out.print(localdate.getDayOfMonth());
 		
 		
 		LocalDateTime birth = LocalDateTime.of(2001, 7, 24, 16, 44); // 날짜 생성

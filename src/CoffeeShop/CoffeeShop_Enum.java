@@ -1,14 +1,18 @@
 package CoffeeShop;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CoffeeShop_Enum {
+	
 
 	public static void main(String[] args) {
 		// 커피숍 메뉴(가격)을 enum 클래스로 생성
 		// 주문 클래스 커피에 대한 메뉴(enum 클래스), 수량, 가격 => 출력
 		// 메인에서 커피메뉴 주문 => 출력
+		
+		Order od = new Order();
 		
 		List<Order> orderList = new ArrayList<>();
 		
@@ -20,9 +24,14 @@ public class CoffeeShop_Enum {
 		
 		System.out.println();
 		System.out.println("•─────────⋅☾ 주문서 ☽⋅─────────•");
-		Order o1 = new Order(CoffeeShop.말차라떼, Size.LARGE, Option.SHOT, 2);
-		Order o2 = new Order(CoffeeShop.망고바나나, Size.SMALL, Option.NON_OPTION, 1);
-		Order o3 = new Order(CoffeeShop.에스프레소, Size.MEDIUM, Option.WHIPEED_CREAM, 4);
+//		Order o1 = new Order(CoffeeShop.말차라떼, Size.LARGE, Option.SHOT, 2);
+//		Order o2 = new Order(CoffeeShop.망고바나나, Size.SMALL, Option.NON_OPTION, 1);
+//		Order o3 = new Order(CoffeeShop.에스프레소, Size.MEDIUM, Option.WHIPEED_CREAM, 4);
+		
+
+		Order o1 = new Order(CoffeeShop.말차라떼, Size.LARGE, Arrays.asList(Option.SHOT, Option.SHOT, Option.WHIPEED_CREAM), 1);
+		Order o2 = new Order(CoffeeShop.망고바나나, Size.MEDIUM, Arrays.asList(Option.NON_OPTION), 2);
+		Order o3 = new Order(CoffeeShop.유스베리티, Size.SMALL, Arrays.asList(Option.SYRUP, Option.WHIPEED_CREAM), 1);
 		
 		orderList.add(o1);
 		orderList.add(o2);
